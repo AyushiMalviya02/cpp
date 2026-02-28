@@ -1,0 +1,13 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    char ch = 'A'; // start from 'A'
+
+    while (ch <= 'Z') {
+        cout << ch << " ";
+        ch++; // move to next letter
+    }
+
+    return 0;
+}
