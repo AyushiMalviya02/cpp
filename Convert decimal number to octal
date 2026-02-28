@@ -1,0 +1,32 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int decimal;
+    cout << "Enter a decimal number: ";
+    cin >> decimal;
+
+    if (decimal == 0) {
+        cout << "Octal equivalent: 0" << endl;
+        return 0;
+    }
+
+    vector<int> octalDigits;
+
+    int num = decimal;
+    while (num > 0) {
+        int remainder = num % 8;  // Get remainder
+        octalDigits.push_back(remainder);
+        num /= 8;                 // Divide by 8
+    }
+
+    cout << "Octal equivalent: ";
+    // Print in reverse order
+    for (int i = octalDigits.size() - 1; i >= 0; i--) {
+        cout << octalDigits[i];
+    }
+    cout << endl;
+
+    return 0;
+}
