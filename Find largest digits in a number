@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long num;  // Use long long for very large numbers
+    cout << "Enter a number: ";
+    cin >> num;
+
+    int largest = 0;
+    if (num < 0) num = -num; // Make sure number is positive
+
+    while (num > 0) {
+        int digit = num % 10;  // Get last digit
+        if (digit > largest) {
+            largest = digit;    // Update largest if this digit is bigger
+        }
+        num /= 10;  // Remove last digit
+    }
+
+    cout << "Largest digit is: " << largest << endl;
+
+    return 0;
+}
