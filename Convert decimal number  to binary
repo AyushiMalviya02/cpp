@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter a decimal number: ";
+    cin >> n;
+
+    if (n == 0) {
+        cout << 0;
+        return 0;
+    }
+
+    vector<int> binary;
+
+    while (n > 0) {
+        binary.push_back(n % 2);  // store remainder
+        n /= 2;
+    }
+
+    // Print in reverse order
+    for (int i = binary.size() - 1; i >= 0; i--) {
+        cout << binary[i];
+    }
+
+    return 0;
+}
