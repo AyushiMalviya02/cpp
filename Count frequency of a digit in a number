@@ -1,0 +1,32 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    long long num;      // To handle large numbers
+    int digitToCount;
+    
+    cout << "Enter a number: ";
+    cin >> num;
+    cout << "Enter the digit to count (0-9): ";
+    cin >> digitToCount;
+
+    if (digitToCount < 0 || digitToCount > 9) {
+        cout << "Invalid digit!" << endl;
+        return 1;
+    }
+
+    int count = 0;
+    if (num < 0) num = -num; // Make sure the number is positive
+
+    while (num > 0) {
+        int digit = num % 10;     // Get the last digit
+        if (digit == digitToCount) {
+            count++;               // Increment if it matches
+        }
+        num /= 10;                 // Remove last digit
+    }
+
+    cout << "Digit " << digitToCount << " occurs " << count << " times." << endl;
+
+    return 0;
+}
