@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num;
+    cout << "Enter a number: ";
+    cin >> num;
+
+    int largest = 0; // To store the largest digit
+    int temp = num;
+
+    // Handle negative numbers
+    if (temp < 0) temp = -temp;
+
+    while (temp > 0) {
+        int digit = temp % 10;  // Extract last digit
+        if (digit > largest) {
+            largest = digit;    // Update largest if current digit is bigger
+        }
+        temp /= 10;  // Remove last digit
+    }
+
+    cout << "Largest digit in " << num << " is " << largest << endl;
+
+    return 0;
+}
