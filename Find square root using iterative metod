@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+long long integerSqrt(long long n) {
+    if (n == 0 || n == 1) return n;
+
+    long long start = 0, end = n, ans = 0;
+
+    while (start <= end) {
+        long long mid = start + (end - start) / 2;
+
+        if (mid * mid == n)
+            return mid;
+        else if (mid * mid < n) {
+            start = mid + 1;
+            ans = mid;  // store floor(sqrt(n))
+        } else {
+            end = mid - 1;
+        }
+    }
+
+    return ans;
+}
+
+int main() {
+    long long n;
+    cout << "Enter a number: ";
+    cin >> n;
+
+    cout << "Integer square root of " << n << " is: " << integerSqrt(n);
+
+    return 0;
+}
