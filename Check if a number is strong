@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+
+long long factorial(int n) {
+    long long fact = 1;
+    for (int i = 1; i <= n; i++) fact *= i;
+    return fact;
+}
+
+bool isStrong(long long n) {
+    long long original = n;
+    long long sum = 0;
+
+    while (n > 0) {
+        int digit = n % 10;
+        sum += factorial(digit);
+        n /= 10;
+    }
+
+    return sum == original;
+}
+
+int main() {
+    long long n;
+    cin >> n;
+
+    if (isStrong(n))
+        cout << "Strong number";
+    else
+        cout << "Not a Strong number";
+}
